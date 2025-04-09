@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  esercitazione4:
+    image: esercitazione4
+    build:
+      context: .
+      dockerfile: ./Dockerfile
