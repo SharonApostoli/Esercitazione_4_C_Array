@@ -8,28 +8,50 @@ using namespace std;
 
 int main()
 {
-    //Check if ifle is opened correctly
+    //Define first set of variables
     string inputFileName = './data.txt';
     size_t n = 0;
     double S = 0;
     double* w = nullptr;
     double* r = nullptr;
 
+    //Check if ifle is opened correctly
     if(!ImportVectors(inputFileName, n, S, w, r))
     {
         cerr << "Error while importing data" << endl;
         return -1;
     }
     else
+    {
         cout << "The import was succesful!" << endl;
-        cout << "S = " << S << "n = " << n << "w = " << ArrayToString(n, w) << "r = " << ArrayToString(n, r) << endl;
-    
+    }
 
-    //Get all the information from the file: S, n, w=[], r=[]
+    //Defined the two new variables that needed the information inside the text to be defined
+    double rate = RateOfReturn(r, n);
+    double V = FinalValue(S, rate);
 
-    //Compute the rate of return
+    //Print on screen
+    cout.precision(2);
+    cout << "S = " << S << "n = " << n << endl;
+    cout << "w = " << ArrayToString(n, w) << endl;
+    cout << "r = " << ArrayToString(n, r) << endl;
+    cout << "Rate of return of the portfolio: " << rate << endl;
+    cout << "V: " << V << endl;
 
-    //Print on screen and on a new file named "reslut.txt"
+    //Print on a new file named "reslut.txt"
+    string outputFileName = "./result.txt";
+    if(!ExportResult(outputFileName, n, S, w, r, rate, V))
+    {
+        cerr << "Something went wrong while exporting!" << endl;
+        return -1;
+    }
+    else
+        cout << "Export successful!" << endl;
+
+    //Delete pointers
+    delete[] w;
+    delete[] r;
+
     return 0;
 }
 
