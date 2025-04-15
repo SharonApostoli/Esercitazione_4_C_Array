@@ -9,14 +9,14 @@ using namespace std;
 int main()
 {
     //Define first set of variables
-    string inputFileName = './data.txt';
+    string inputFileName = "./data.txt";
     size_t n = 0;
     double S = 0;
     double* w = nullptr;
     double* r = nullptr;
 
     //Check if ifle is opened correctly
-    if(!ImportVectors(inputFileName, n, S, w, r))
+    if(!ImportArrays(inputFileName, n, S, w, r))
     {
         cerr << "Error while importing data" << endl;
         return -1;

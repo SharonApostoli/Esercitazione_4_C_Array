@@ -58,7 +58,7 @@ double RateOfReturn(const double* const& r, const size_t& n)
 
 double FinalValue(const double& S, const double& rate)
 {
-    double Value = S (1.0 * rate);
+    double Value = S * (1.0 + rate);
     return Value;
 }
 
@@ -96,7 +96,7 @@ bool ExportResult(const string& OutputFilePath, const size_t& n, const double& S
     return true;
 }
 
-string ArrayToString(const size_t& n, const double*& v)
+string ArrayToString(const size_t& n, const double* const& v)
 {
     string str;
     ostringstream toString;

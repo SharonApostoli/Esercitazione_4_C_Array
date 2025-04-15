@@ -12,4 +12,4 @@ double FinalValue(const double& S, const double& rate);
 
 bool ExportResult(const string& OutputFilePath, const size_t& n, const double& S, const double* const& w, const double* const& r, const double& Rate, const double& Value);
 
-string ArrayToString(const size_t& n, const double*& v);
+string ArrayToString(const size_t& n, const double* const& v);
